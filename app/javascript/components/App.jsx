@@ -16,7 +16,7 @@ class App extends Component {
 
   render(){
 
-    let searchOrJobList = this.state.tags.length >= 3 ? <JobList/> : <Search/>
+    let searchOrJobList = this.state.tags.length >= 3 ? <JobList/> : <Search tags={this.props.tags}/>
 
     return(
       <div className="main-container">
