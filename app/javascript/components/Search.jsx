@@ -9,10 +9,18 @@ class Search extends Component {
     }
   }
 
+  componentDidMount(){
+    const input = document.querySelector('input')
+    input.focus();
+  }
+
   render(){
     return(
       <div>
-        Search is here
+        <form>
+          <input autoComplete="off" type="text" name="title" placeholder="Ex: Ruby Developer" value={this.props.name}
+             className="field"/>
+        </form>
       </div>
     )
   }

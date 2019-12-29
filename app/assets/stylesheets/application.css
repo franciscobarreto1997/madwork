@@ -10,3 +10,19 @@
   bottom: 0;
   color: #FFFFFF;
 }
+
+.field {
+  width: 50vw;
+  background-color: #151515;
+  border: none;
+  border-bottom: 1px solid white;
+  color: #FFFFFF;
+  font-weight: bold;
+  font-size: 50px;
+}
+
+input,
+textarea,
+select {
+    outline: 0;
+}
