@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { useSpring, animated } from 'react-spring';
 
 import Search from './Search'
 import JobList from './JobList'
@@ -13,10 +14,9 @@ class App extends Component {
     }
   }
 
-
   render(){
 
-    let searchOrJobList = this.state.tags.length >= 3 ? <JobList/> : <Search tags={this.props.tags}/>
+    let searchOrJobList = this.state.tags.length >= 3 ? <JobList/> : <Search tags={this.state.tags}/>
 
     return(
       <div className="main-container">

@@ -1,29 +1,24 @@
-import React, { Component } from 'react';
+import React, { useEffect } from 'react';
+import { useSpring, animated as a, config } from 'react-spring';
 
-class Search extends Component {
-  constructor(props){
-    super(props);
 
-    this.state = {
+const Search = () => {
 
-    }
-  }
+    useEffect(() => {
+      const input = document.querySelector('input')
+      input.focus();
+    })
 
-  componentDidMount(){
-    const input = document.querySelector('input')
-    input.focus();
-  }
+    const fadeIn = useSpring( {opacity: 1, color: 'red'} )
 
-  render(){
-    return(
-      <div>
-        <form>
-          <input autoComplete="off" type="text" name="title" placeholder="Ex: Ruby Developer" value={this.props.name}
-             className="field"/>
-        </form>
-      </div>
-    )
-  }
+  return(
+    <a.div>
+      <form>
+        <a.input style={fadeIn} autoComplete="off" type="text" name="title" placeholder="Ex: Ruby Developer"
+           className="field"/>
+      </form>
+    </a.div>
+  )
 }
 
 export default Search;
