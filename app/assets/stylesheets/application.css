@@ -1,3 +1,11 @@
+body {
+  font-family: 'Kulim Park', sans-serif;
+}
+
+input {
+  font-family: 'Kulim Park', sans-serif;
+}
+
 .main-container {
   background-color: #151515;
   display: flex;
@@ -19,6 +27,14 @@
   color: #FFFFFF;
   font-weight: bold;
   font-size: 50px;
+}
+
+#logo {
+  width: 100px;
+  height: 80px;
+  position: absolute;
+  margin-left: 20px;
+  margin-top: 20px;
 }
 
 input,
