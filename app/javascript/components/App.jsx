@@ -3,6 +3,7 @@ import { useSpring, animated } from 'react-spring';
 
 import Search from './Search'
 import JobList from './JobList'
+import Logo from './Logo'
 
 class App extends Component {
   constructor(props){
@@ -20,6 +21,7 @@ class App extends Component {
 
     return(
       <div className="main-container">
+      <Logo />
         {searchOrJobList}
       </div>
     )

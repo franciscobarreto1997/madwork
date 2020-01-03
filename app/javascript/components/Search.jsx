@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { useSpring, animated as a, config } from 'react-spring';
+import { useSpring, animated as a } from 'react-spring';
 
 
 const Search = () => {
@@ -9,7 +9,7 @@ const Search = () => {
       input.focus();
     })
 
-    const fadeIn = useSpring( {opacity: 1, color: 'red'} )
+    const fadeIn = useSpring({opacity: 1, from: {opacity: 0}})
 
   return(
     <a.div>
