@@ -29,12 +29,15 @@ input {
   font-size: 50px;
 }
 
-#logo {
-  width: 100px;
-  height: 80px;
+.logo-container {
   position: absolute;
   margin-left: 20px;
   margin-top: 20px;
+}
+
+#logo {
+  width: 100%;
+  height: 100%;  
 }
 
 input,
