@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { useSpring, animated as a } from 'react-spring';
 
 
-const Search = () => {
+const Search = (props) => {
 
     useEffect(() => {
       const input = document.querySelector('input')
@@ -11,11 +11,12 @@ const Search = () => {
 
     const fadeIn = useSpring({opacity: 1, from: {opacity: 0}})
 
+
   return(
     <a.div>
-      <form>
+      <form onSubmit={props.handleSubmit}>
         <a.input style={fadeIn} autoComplete="off" type="text" name="title" placeholder="Ex: Ruby Developer"
-           className="field"/>
+           className="field" onChange={props.handleChange}/>
       </form>
     </a.div>
   )
