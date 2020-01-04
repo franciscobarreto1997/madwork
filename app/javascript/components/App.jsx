@@ -22,7 +22,8 @@ class App extends Component {
     e.preventDefault()
     this.setState({
       searchCounter: this.state.searchCounter + 1,
-      tags: [...this.state.tags, this.state.query]
+      tags: [...this.state.tags, this.state.query],
+      query: ''
     })
     if (this.state.counter == 3) {
       console.log("time to post our tags using axios!")
@@ -46,7 +47,8 @@ class App extends Component {
     let searchOrJobList = this.state.tags.length == 3 ? <JobList/> : <Search tags={this.state.tags}
                                                                              handleSubmit={this.handleSubmit}
                                                                              handleChange={this.handleChange}
-                                                                             counter={this.state.searchCounter}/>
+                                                                             counter={this.state.searchCounter}
+                                                                             input={this.state.query}/>
 
     return(
       <div className="main-container">
