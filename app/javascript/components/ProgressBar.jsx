@@ -14,8 +14,19 @@ class ProgressBar extends Component {
       position: absolute;
       bottom: 0;
     `;
+
+    let percentageWidth = this.props.percentage + "%"
+
+    const ProgressInTracker = styled.div`
+      height: 100%;
+      width: ${percentageWidth} ;
+      background: white;
+      border-radius: 8px;
+      box-shadow: inset 0 0 5px #000;
+    `;
     return(
       <Tracker>
+        <ProgressInTracker percentage={this.props.percentage} />
       </Tracker>
     )
   }

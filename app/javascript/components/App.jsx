@@ -15,7 +15,8 @@ class App extends Component {
       query: '',
       tags: [],
       results: [],
-      searchCounter: 0
+      searchCounter: 0,
+      percentage: 0
     }
   }
 
@@ -24,7 +25,8 @@ class App extends Component {
     this.setState({
       searchCounter: this.state.searchCounter + 1,
       tags: [...this.state.tags, this.state.query],
-      query: ''
+      query: '',
+      percentage: this.state.percentage + 33
     })
     if (this.state.counter == 3) {
       console.log("time to post our tags using axios!")
@@ -55,7 +57,7 @@ class App extends Component {
       <div className="main-container">
       <Logo />
         {searchOrJobList}
-      <ProgressBar />
+      <ProgressBar percentage={this.state.percentage} />
       </div>
     )
   }
