@@ -5,6 +5,7 @@ import axios from 'axios';
 import Search from './Search'
 import JobList from './JobList'
 import Logo from './Logo'
+import ProgressBar from './ProgressBar'
 
 class App extends Component {
   constructor(props){
@@ -54,6 +55,7 @@ class App extends Component {
       <div className="main-container">
       <Logo />
         {searchOrJobList}
+      <ProgressBar />
       </div>
     )
   }
