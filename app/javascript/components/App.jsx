@@ -11,6 +11,7 @@ class App extends Component {
     super(props);
 
     this.state = {
+      query: '',
       tags: [],
       results: [],
       searchCounter: 0
@@ -20,7 +21,8 @@ class App extends Component {
   handleSubmit = (e) => {
     e.preventDefault()
     this.setState({
-      searchCounter: this.state.searchCounter + 1
+      searchCounter: this.state.searchCounter + 1,
+      tags: [...this.state.tags, this.state.query]
     })
     if (this.state.counter == 3) {
       console.log("time to post our tags using axios!")
@@ -31,19 +33,20 @@ class App extends Component {
     let input = e.target.value
     if (input == "") {
       this.setState({
-        tags: []
+        query: ''
       })
     }
     this.setState({
-      tags: [...this.state.tags, input]
+      query: input
     })
   }
 
   render(){
 
-    let searchOrJobList = this.state.tags.length >= 3 ? <JobList/> : <Search tags={this.state.tags}
+    let searchOrJobList = this.state.tags.length == 3 ? <JobList/> : <Search tags={this.state.tags}
                                                                              handleSubmit={this.handleSubmit}
-                                                                             handleChange={this.handleChange}/>
+                                                                             handleChange={this.handleChange}
+                                                                             counter={this.state.searchCounter}/>
 
     return(
       <div className="main-container">
