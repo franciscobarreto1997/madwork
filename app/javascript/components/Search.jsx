@@ -13,15 +13,11 @@ const Search = (props) => {
 
     let placeholder = ""
 
-    let value = ""
-
     if (props.counter == 0) {
       placeholder = "What do you do?"
     } else if (props.counter == 1) {
-      value = ""
       placeholder = "Junior? Midlevel? Senior?"
     } else {
-      value = ""
       placeholder = "Where do you want to work?"
     }
 
@@ -29,8 +25,8 @@ const Search = (props) => {
   return(
     <a.div>
       <form onSubmit={props.handleSubmit}>
-        <a.input style={fadeIn} autoComplete="off" type="text" name="title" placeholder={placeholder}
-           className="field" onChange={props.handleChange} value={value}/>
+        <a.input style={fadeIn} autoComplete="off" type="text" name="query" placeholder={placeholder}
+           className="field" onChange={props.handleChange} value={props.input}/>
       </form>
     </a.div>
   )
