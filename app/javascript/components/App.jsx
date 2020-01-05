@@ -18,7 +18,6 @@ class App extends Component {
       query: '',
       tags: [],
       results: [],
-      searchCounter: 0,
       percentage: 0
     }
   }
@@ -26,14 +25,24 @@ class App extends Component {
   handleSubmit = (e) => {
     e.preventDefault()
     this.setState({
-      searchCounter: this.state.searchCounter + 1,
       tags: [...this.state.tags, this.state.query],
       query: '',
       percentage: this.state.percentage + 33
+    }, () => {
+      if (this.state.tags.length == 3) {
+        axios.post('http://localhost:3000/search', {
+          role: this.state.tags[0],
+          experience: this.state.tags[1],
+          location: this.state.tags[2]
+        }).then((data) => {
+          this.setState({
+            results: data
+          })
+        }).catch((data) => {
+          console.log(data)
+        })
+      }
     })
-    if (this.state.counter == 3) {
-      console.log("time to post our tags using axios!")
-    }
   }
 
   handleChange = (e) => {
@@ -50,7 +59,7 @@ class App extends Component {
 
   render(){
 
-    let searchOrLoader = this.state.tags.length == 3 ?
+    let searchOrLoader = (this.state.tags.length == 3 && this.state.results.length < 1) ?
         <Loader type="Puff"
                 color="white"
                 height={80}
@@ -60,7 +69,6 @@ class App extends Component {
          <Search tags={this.state.tags}
                  handleSubmit={this.handleSubmit}
                  handleChange={this.handleChange}
-                 counter={this.state.searchCounter}
                  input={this.state.query}/>
 
       let progressBarOrNot = this.state.tags.length == 3 ?
