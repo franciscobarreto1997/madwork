@@ -14,7 +14,7 @@ const Search = (props) => {
     let placeholder = ""
 
     if (props.tags.length == 0) {
-      placeholder = "What do you do?"
+      placeholder = "Type in your language/framework of choice"
     } else if (props.tags.length == 1) {
       placeholder = "Junior? Midlevel? Senior?"
     } else {
