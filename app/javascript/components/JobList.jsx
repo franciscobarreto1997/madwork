@@ -1,21 +1,11 @@
 import React, { Component } from 'react';
 
-class JobList extends Component {
-  constructor(props){
-    super(props);
-
-    this.state = {
-
-    }
-  }
-
-  render(){
-    return(
-      <div>
-        JobList is here
-      </div>
-    )
-  }
+const JobList = () => {
+  return(
+    <div className="job-list-container">
+      <p>JOBLIST</p>
+    </div>
+  )
 }
 
 export default JobList;

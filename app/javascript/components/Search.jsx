@@ -16,7 +16,7 @@ const Search = (props) => {
     if (props.tags.length == 0) {
       placeholder = "Type in your language/framework of choice"
     } else if (props.tags.length == 1) {
-      placeholder = "Junior? Midlevel? Senior?"
+      placeholder = "Junior? Mid-Level? Senior?"
     } else {
       placeholder = "Where do you want to work?"
     }

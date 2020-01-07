@@ -18,7 +18,8 @@ class App extends Component {
       query: '',
       tags: [],
       results: [],
-      percentage: 0
+      percentage: 0,
+      dataFetched: false
     }
   }
 
@@ -37,7 +38,8 @@ class App extends Component {
         }).then((data) => {
           console.log(data)
             this.setState({
-              results: data
+              results: data,
+              dataFetched: true
             })
         }).catch((data) => {
           console.log(data)
@@ -60,17 +62,17 @@ class App extends Component {
 
   render(){
 
-    let searchOrLoader = (this.state.tags.length == 3 && this.state.results.length < 1) ?
-        <Loader type="Puff"
-                color="white"
-                height={80}
-                width={80}
-                timeout={60000} />
-                :
-         <Search tags={this.state.tags}
-                 handleSubmit={this.handleSubmit}
-                 handleChange={this.handleChange}
-                 input={this.state.query}/>
+    let displayedComponent = null
+
+    let mainContainerStyle = this.state.dataFetched ? "main-container-results" : "main-container"
+
+      if (this.state.tags.length == 3 && this.state.results.length < 1) {
+        displayedComponent = <Loader type="Puff" color="white" height={80} width={80} timeout={60000} />
+      } else if (this.state.dataFetched == true) {
+        displayedComponent = <JobList />
+      } else {
+        displayedComponent = <Search tags={this.state.tags} handleSubmit={this.handleSubmit} handleChange={this.handleChange} input={this.state.query} />
+      }
 
       let progressBarOrNot = this.state.tags.length == 3 ?
         null
@@ -78,9 +80,9 @@ class App extends Component {
         <ProgressBar percentage={this.state.percentage} />
 
     return(
-      <div className="main-container">
+      <div className={mainContainerStyle}>
       <Logo />
-        {searchOrLoader}
+        {displayedComponent}
         {progressBarOrNot}
       </div>
     )
