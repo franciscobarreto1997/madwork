@@ -35,9 +35,10 @@ class App extends Component {
           experience: this.state.tags[1],
           location: this.state.tags[2]
         }).then((data) => {
-          this.setState({
-            results: data
-          })
+          console.log(data)
+            this.setState({
+              results: data
+            })
         }).catch((data) => {
           console.log(data)
         })
@@ -64,7 +65,7 @@ class App extends Component {
                 color="white"
                 height={80}
                 width={80}
-                timeout={10000} />
+                timeout={60000} />
                 :
          <Search tags={this.state.tags}
                  handleSubmit={this.handleSubmit}
