@@ -38,7 +38,7 @@ class App extends Component {
         }).then((data) => {
           console.log(data)
             this.setState({
-              results: data,
+              results: [...this.state.results, data.data],
               dataFetched: true
             })
         }).catch((data) => {
@@ -67,9 +67,9 @@ class App extends Component {
     let mainContainerStyle = this.state.dataFetched ? "main-container-results" : "main-container"
 
       if (this.state.tags.length == 3 && this.state.results.length < 1) {
-        displayedComponent = <Loader type="Puff" color="white" height={80} width={80} timeout={60000} />
+        displayedComponent = <Loader type="Puff" color="white" height={80} width={80} timeout={120000} />
       } else if (this.state.dataFetched == true) {
-        displayedComponent = <JobList />
+        displayedComponent = <JobList jobs={this.state.results}/>
       } else {
         displayedComponent = <Search tags={this.state.tags} handleSubmit={this.handleSubmit} handleChange={this.handleChange} input={this.state.query} />
       }
