@@ -1,9 +1,11 @@
-import React, { Component } from 'react';
+import React, { Component, useState } from 'react';
 
 const Job = (props) => {
 
+  const [toggled, setToggle] = useState(false)
+
   return(
-    <div className="job">
+    <div className={ toggled ? "job-toggled" : "job" } onClick={() => setToggle(!toggled)}>
       <h2>{props.job.title}</h2>
       <h3>{props.job.company}</h3>
       <p>{props.job.location}</p>
