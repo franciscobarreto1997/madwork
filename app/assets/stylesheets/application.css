@@ -60,12 +60,25 @@ input {
 }
 
 .job {
+  display: block;
   width: 95%;
   border: 1px solid white;
   color: white;
   padding: 20px;
   margin-bottom: 40px;
   border-radius: 20px;
+  transition: padding 0.5s ease;
+  transition: border 0.5 ease;
+}
+
+.job:hover {
+  padding: 30px;
+  border: 4px solid white;
+}
+
+#go {
+  font-size: 23px;
+  border-radius: 15px;
 }
 
 input,
