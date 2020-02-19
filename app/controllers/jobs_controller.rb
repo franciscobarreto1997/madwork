@@ -12,10 +12,12 @@ class JobsController < ApplicationController
       experience = params[:experience]
       location = params[:location]
       jobs = scrape_all(role, experience, location)
+      render json: jobs
     else
-
+      url = params[:url]
+      job = scrape_one(url)
+      render json: job
     end
-    render json: jobs
   end
 
   private
@@ -48,25 +50,23 @@ class JobsController < ApplicationController
     jobs
   end
 
-  def scrape_one
-    jobs.map do |job|
-      url = job[:url]
-      browser = Watir::Browser.new :chrome, headless: true
-      browser.goto url
-      doc = Nokogiri::HTML(browser.html)
-      date = doc.css('div.jobsearch-JobMetadataFooter').text.scan(/\d+/)
-      date_string = date.empty? ? "" : date[0] + " days ago"
-      final_date_string =  ""
-      if date_string.match(/^1\s/)
-        final_date_string = date_string.tr('s', '')
-      elsif date_string.include?("30")
-        final_date_string = date_string.insert(2, '+')
-      else
-        final_date_string = date_string
-      end
-      job[:posted_date] = final_date_string
-      job[:company] = doc.css('div.jobsearch-CompanyInfoWithoutHeaderImage').text
-      job[:description] = doc.css('div#jobDescriptionText').text.gsub("\n", '')
+  def scrape_one(url)
+    job = {}
+    browser = Watir::Browser.new :chrome, headless: true
+    browser.goto url
+    doc = Nokogiri::HTML(browser.html)
+    date = doc.css('div.jobsearch-JobMetadataFooter').text.scan(/\d+/)
+    date_string = date.empty? ? "" : date[0] + " days ago"
+    final_date_string =  ""
+    if date_string.match(/^1\s/)
+      final_date_string = date_string.tr('s', '')
+    elsif date_string.include?("30")
+      final_date_string = date_string.insert(2, '+')
+    else
+      final_date_string = date_string
     end
+    job[:posted_date] = final_date_string
+    job[:description] = doc.css('div#jobDescriptionText').text.gsub("\n", '')
+    job
   end
 end

@@ -1,11 +1,24 @@
 import React, { Component, useState } from 'react';
+import axios from 'axios'
+
 
 const Job = (props) => {
 
   const [toggled, setToggle] = useState(false)
+  const [postedDate, setDate] = useState('')
+  const [description, setDescription] = useState('')
 
   if (toggled) {
-
+    axios.post('http://localhost:3000/search', {
+          url: props.job.url
+        }).then((data) => {
+          console.log(data.data.posted_date)
+          setDate(data.data.posted_date)
+          console.log(data.data.description)
+          setDescription(data.data.description)
+        }).catch((data) => {
+          console.log(data)
+        })
   }
 
   return(
@@ -19,6 +32,8 @@ const Job = (props) => {
           GO
         </button>
       </a>
+      <p>{postedDate}</p>
+      <p>{description}</p>
     </div>
   )
 }
