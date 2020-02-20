@@ -6,6 +6,8 @@ input {
   font-family: 'Kulim Park', sans-serif;
 }
 
+@media (min-width: 736px) {
+
 .main-container {
   background-color: #151515;
   display: flex;
@@ -40,13 +42,15 @@ input {
   border-bottom: 1px solid white;
   color: #FFFFFF;
   font-weight: bold;
-  font-size: 31px;
+  font-size: 40px;
 }
 
 .logo-container {
   position: absolute;
-  margin-left: 20px;
-  margin-top: 20px;
+  height: 90px;
+  width: 117px;
+  left: 25px;
+  top: 40px;
 }
 
 .job-list-container {
@@ -93,4 +97,21 @@ input,
 textarea,
 select {
     outline: 0;
+}
+
+}
+
+
+@media (max-width: 736px) {
+
+.field {
+  width: 90vw;
+  background-color: #151515;
+  border: none;
+  border-bottom: 1px solid white;
+  color: #FFFFFF;
+  font-weight: bold;
+  font-size: 60px;
+}
+
 }
