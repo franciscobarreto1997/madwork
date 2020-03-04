@@ -8,9 +8,9 @@ class ProgressBar extends Component {
       width: 50%;
       height: 20px;
       margin: 15px auto;
-      background: rgb(34,34,34);
+      background: transparent;
       border-radius: 10px;
-      box-shadow: inset 0 0 5px #000;
+      box-shadow: inset 0 0 2px #000;
       position: absolute;
       bottom: 0;
     `;
@@ -20,7 +20,7 @@ class ProgressBar extends Component {
     const ProgressInTracker = styled.div`
       height: 100%;
       width: ${percentageWidth} ;
-      background: white;
+      background: black;
       border-radius: 8px;
       box-shadow: inset 0 0 5px #000;
     `;

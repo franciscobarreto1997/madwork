@@ -9,7 +9,7 @@ input {
 @media (min-width: 736px) {
 
 .main-container {
-  background-color: #151515;
+  background-color: white;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -19,11 +19,11 @@ input {
   right: 0;
   left: 0;
   bottom: 0;
-  color: #FFFFFF;
+  color: black;
 }
 
 .main-container-results {
-  background-color: #151515;
+  background-color: white;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -32,15 +32,92 @@ input {
   top: 0;
   right: 0;
   left: 0;
-  color: #FFFFFF;
+  color: black;
+}
+
+.intro {
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  background-color: #151515;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  cursor: crosshair;
+}
+
+.intro h1 {
+  color: #323232;
+  font-weight: 900;
+  font-size: 300px;
+}
+
+.button {
+  border: 1px solid white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: transparent;
+  color: white;
+  padding: 20px 40px;
+  position: absolute;
+  font-size: 20px;
+  letter-spacing: 0.2rem;
+  transition: all 0.5s ease;
+}
+
+.btn-animation {
+  animation: move-button 2s;
+}
+
+@keyframes move-button {
+
+  0% {
+    transform: translate(0,0);
+    opacity: 1;
+  }
+
+  50% {
+    transform: translateY(-100px);
+    opacity: 0;
+  }
+
+}
+
+.div-animation {
+  animation: move-div 3s;
+}
+
+@keyframes move-div {
+
+  0% {
+    transform: translate(0,0);
+    opacity: 1;
+  }
+
+  50% {
+    transform: translateY(-1000px);
+    opacity: 0;
+  }
+
+}
+
+.intro button:hover {
+  background-color: white;
+  color: black;
+  cursor: crosshair;
 }
 
 .field {
   width: 50vw;
-  background-color: #151515;
+  background-color: transparent;
   border: none;
-  border-bottom: 1px solid white;
-  color: #FFFFFF;
+  border-bottom: 1px solid grey;
+  color: black;
   font-weight: bold;
   font-size: 40px;
 }
@@ -66,8 +143,8 @@ input {
 .job {
   display: block;
   width: 95%;
-  border: 1px solid white;
-  color: white;
+  border: 1px solid black;
+  color: black;
   padding: 20px;
   margin-bottom: 40px;
   border-radius: 20px;
@@ -108,7 +185,7 @@ select {
   width: 90vw;
   background-color: #151515;
   border: none;
-  border-bottom: 1px solid white;
+  border-bottom: 1px solid grey;
   color: #FFFFFF;
   font-weight: bold;
   font-size: 60px;
