@@ -32,7 +32,7 @@ class App extends Component {
       percentage: this.state.percentage + 33
     }, () => {
       if (this.state.tags.length == 3) {
-        axios.post('http://localhost:3000/search', {
+        axios.post('/search', {
           role: this.state.tags[0],
           experience: this.state.tags[1],
           location: this.state.tags[2]
