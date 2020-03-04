@@ -9,6 +9,7 @@ import Search from './Search'
 import JobList from './JobList'
 import Logo from './Logo'
 import ProgressBar from './ProgressBar'
+import Intro from './Intro'
 
 class App extends Component {
   constructor(props){
@@ -67,7 +68,7 @@ class App extends Component {
     let mainContainerStyle = this.state.dataFetched ? "main-container-results" : "main-container"
 
       if (this.state.tags.length == 3 && this.state.results.length < 1) {
-        displayedComponent = <Loader type="Puff" color="white" height={80} width={80} timeout={120000} />
+        displayedComponent = <Loader type="Puff" color="black" height={80} width={80} timeout={120000} />
       } else if (this.state.dataFetched == true) {
         displayedComponent = <JobList jobs={this.state.results}/>
       } else {
@@ -81,6 +82,7 @@ class App extends Component {
 
     return(
       <div className={mainContainerStyle}>
+      <Intro />
       <Logo />
         {displayedComponent}
         {progressBarOrNot}
