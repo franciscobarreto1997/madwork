@@ -9,7 +9,7 @@ const Job = (props) => {
   const [description, setDescription] = useState('')
 
   if (toggled) {
-    axios.post('http://localhost:3000/search', {
+    axios.post('/search', {
           url: props.job.url
         }).then((data) => {
           console.log(data.data.posted_date)
