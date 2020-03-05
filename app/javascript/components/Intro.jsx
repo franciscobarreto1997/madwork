@@ -6,20 +6,22 @@ const Intro = () => {
   const [buttonAnimated, setButtonAnimated] = useState(false)
   const [divAnimated, setDivAnimated] = useState(false)
 
+  const button = document.querySelector('button')
+  const div = document.querySelector('.intro')
+
+
+  if (button) {
     if (buttonAnimated === true) {
-      const button = document.querySelector('button')
       setTimeout(() => {
         button.parentNode.removeChild(button);
         setDivAnimated(true)
       }, 1000);
 
-
-
-      const div = document.querySelector('.intro')
       setTimeout(() => {
         div.parentNode.removeChild(div);
       }, 2200);
     }
+  }
 
 
   return(

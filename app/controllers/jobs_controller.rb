@@ -52,6 +52,8 @@ class JobsController < ApplicationController
 
   def scrape_one(url)
     job = {}
+
+
     browser = Watir::Browser.new :chrome, headless: true
     browser.goto url
     doc = Nokogiri::HTML(browser.html)
