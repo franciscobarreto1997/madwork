@@ -54,12 +54,12 @@ class JobsController < ApplicationController
     job = {}
 
 
-    args = %w[--disable-infobars  --no-sandbox --disable-gpu --disable-dev-shm-usage]
+    args = %w[--headless --no-sandbox --disable-dev-shm-usage]
     options = {
        binary: ENV['GOOGLE_CHROME_BIN'],
        args:  args
      }
-    browser = Watir::Browser.new(:chrome, options: options, headless: true)
+    browser = Watir::Browser.new(:chrome, options: options)
     browser.goto url
     doc = Nokogiri::HTML(browser.html)
     date = doc.css('div.jobsearch-JobMetadataFooter').text.scan(/\d+/)
