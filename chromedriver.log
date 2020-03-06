@@ -1,0 +1,4 @@
+[1583498610.027][INFO]: Starting ChromeDriver 79.0.3945.36 (3582db32b33893869b8c1339e8f4d9ed1816f143-refs/branch-heads/3945@{#614})
+[1583498610.027][INFO]: Please protect ports used by ChromeDriver and related test frameworks to prevent access by malicious code.
+[1583498610.030][SEVERE]: bind() failed: Address already in use (48)
+[1583498610.030][INFO]: listen on IPv4 failed with error ERR_ADDRESS_IN_USE

@@ -52,13 +52,7 @@ class JobsController < ApplicationController
 
   def scrape_one(url)
     job = {}
-
-
-    args = %w[--headless --no-sandbox --disable-dev-shm-usage start-maximized --disable-gpu disable-infobars --disable-extensions]
-    options = {
-       args:  args
-     }
-    browser = Watir::Browser.new(:chrome, options: options)
+    browser = Watir::Browser.new :chrome, args: %w[--headless --no-sandbox --disable-dev-shm-usage --disable-gpu --remote-debugging-port=9222]
     browser.goto url
     doc = Nokogiri::HTML(browser.html)
     date = doc.css('div.jobsearch-JobMetadataFooter').text.scan(/\d+/)
