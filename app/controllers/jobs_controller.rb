@@ -54,8 +54,10 @@ class JobsController < ApplicationController
     job = {}
 
 
+    args = %w[--disable-infobars  --no-sandbox --disable-gpu --disable-dev-shm-usage]
     options = {
        binary: ENV['GOOGLE_CHROME_BIN'],
+       args:  args
      }
     browser = Watir::Browser.new(:chrome, options: options, headless: true)
     browser.goto url
