@@ -54,7 +54,10 @@ class JobsController < ApplicationController
     job = {}
 
 
-    browser = Watir::Browser.new :chrome, headless: true
+    options = {
+       binary: ENV['GOOGLE_CHROME_BIN'],
+     }
+    browser = Watir::Browser.new(:chrome, options: options, headless: true)
     browser.goto url
     doc = Nokogiri::HTML(browser.html)
     date = doc.css('div.jobsearch-JobMetadataFooter').text.scan(/\d+/)
@@ -69,6 +72,7 @@ class JobsController < ApplicationController
     end
     job[:posted_date] = final_date_string
     job[:description] = doc.css('div#jobDescriptionText').text.gsub("\n", '')
+    p job
     job
   end
 end
