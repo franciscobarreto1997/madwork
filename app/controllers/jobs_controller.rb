@@ -52,6 +52,7 @@ class JobsController < ApplicationController
 
   def scrape_one(url)
     job = {}
+    Selenium::WebDriver::Chrome.path = ENV['GOOGLE_CHROME_SHIM'] if ENV['GOOGLE_CHROME_SHIM'].present?
     browser = Watir::Browser.new :chrome, args: %w[--headless --no-sandbox --disable-dev-shm-usage --disable-gpu --remote-debugging-port=9222]
     browser.goto url
     doc = Nokogiri::HTML(browser.html)
