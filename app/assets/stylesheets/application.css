@@ -1,26 +1,85 @@
 body {
-  font-family: 'Kulim Park', sans-serif;
+  font-family: 'Roboto', sans-serif;
 }
 
 input {
-  font-family: 'Kulim Park', sans-serif;
+  font-family: 'Roboto', sans-serif;
 }
 
-@media (min-width: 736px) {
-
 .main-container {
-  background-color: white;
   display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
   position: absolute;
+  background-color: white;
   top: 0;
   right: 0;
   left: 0;
   bottom: 0;
   color: black;
 }
+
+.left {
+  width: 60%;
+  height: 100vh;
+  display: block;
+  align-items: center;
+  justify-content: center;
+}
+
+.left-top {
+  height: 50vh;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+}
+
+.left-bottom {
+  height: 50vh;
+  width: 100%;
+}
+
+.right {
+  width: 40%;
+  height: 100vh;
+  display: block;
+}
+
+.right-top {
+  width: 100%;
+  height: 50%;
+}
+
+.right-bottom {
+  width: 100%;
+  height: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.text {
+  margin-left: 250px;
+}
+
+.text p {
+  margin-left: 30px;
+  font-size: 17px;
+}
+
+#main-header {
+  font-size: 60px;
+}
+
+.field {
+  width: 570px;
+  background-color: transparent;
+  border: none;
+  border-bottom: 1px solid grey;
+  color: black;
+  font-size: 30px;
+  margin-right: 300px;
+}
+
 
 .main-container-results {
   background-color: white;
@@ -112,16 +171,6 @@ input {
   cursor: crosshair;
 }
 
-.field {
-  width: 50vw;
-  background-color: transparent;
-  border: none;
-  border-bottom: 1px solid grey;
-  color: black;
-  font-weight: bold;
-  font-size: 40px;
-}
-
 .logo-container {
   position: absolute;
   height: 90px;
@@ -176,7 +225,6 @@ select {
     outline: 0;
 }
 
-}
 
 
 @media (max-width: 736px) {
