@@ -200,20 +200,20 @@ select {
 
 
 
-@media (max-width: 740px) {
+@media (max-width: 812px) {
 
   .main-container {
-    grid-template-columns: repeat(4, 25%);
+    grid-template-columns: repeat(6, 1fr);
     grid-template-rows: auto;
     grid-template-areas:
-      ". . . ."
-      ". text text ."
-      ". . . ."
-      ". field-progress-bar field-progress-bar ."
+      ". . . . . ."
+      ". text text text text ."
+      ". field-progress-bar field-progress-bar field-progress-bar field-progress-bar ."
+      ". . . . . ."
     }
 
- /*   .field {
-      font-size: 30px;
-    }*/
+    .field {
+      font-size: 3.5vw;
+    }
 
 }
