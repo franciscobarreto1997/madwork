@@ -83,25 +83,13 @@ class App extends Component {
     return(
       <div className={mainContainerStyle}>
         <Intro />
-        <div className="left">
-          <div className="left-top">
-            <div className="text">
-              <h1 id="main-header">Welcome to MADWORK</h1>
-              <p>Tired of searching 50 different jobs websites?<br/> Search on <strong>MADWORK</strong> and we search all the others for you.</p>
-            </div>
-          </div>
-          <div className="left-bottom">
-          </div>
+        <div className="text">
+          <h1>Welcome to MADWORK</h1>
+          <p>Tired of searching 50 different jobs websites?<br/> Search on <strong>MADWORK</strong> and we search all the others for you.</p>
         </div>
-        <div className="right">
-          <div className="right-top">
-          </div>
-          <div className="right-bottom">
-            <div className="field-progress-bar">
-              {displayedComponent}
-              {progressBarOrNot}
-            </div>
-          </div>
+        <div className="field-progress-bar">
+          {displayedComponent}
+          {progressBarOrNot}
         </div>
       </div>
     )

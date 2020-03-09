@@ -7,7 +7,15 @@ input {
 }
 
 .main-container {
-  display: flex;
+  display: grid;
+  grid-template-columns: repeat(5, 20%);
+  grid-template-rows: auto;
+  grid-template-areas:
+    ". . . . ."
+    ". . . . ."
+    ". text text text ."
+    ". . field-progress-bar field-progress-bar ."
+    ". . . . .";
   position: absolute;
   background-color: white;
   top: 0;
@@ -17,48 +25,9 @@ input {
   color: black;
 }
 
-.left {
-  width: 60%;
-  height: 100vh;
-  display: block;
-  align-items: center;
-  justify-content: center;
-}
-
-.left-top {
-  height: 50vh;
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: flex-end;
-}
-
-.left-bottom {
-  height: 50vh;
-  width: 100%;
-}
-
-.right {
-  width: 40%;
-  height: 100vh;
-  display: block;
-}
-
-.right-top {
-  width: 100%;
-  height: 50%;
-}
-
-.right-bottom {
-  width: 100%;
-  height: 50%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
 
 .text {
-  margin-left: 250px;
+  grid-area: text;
 }
 
 .text p {
@@ -66,18 +35,22 @@ input {
   font-size: 17px;
 }
 
-#main-header {
+.text h1 {
   font-size: 60px;
 }
 
 .field {
-  width: 570px;
   background-color: transparent;
   border: none;
   border-bottom: 1px solid grey;
   color: black;
-  font-size: 30px;
-  margin-right: 300px;
+  font-size: 2vw;
+  width: 100%;
+}
+
+.field-progress-bar {
+  justify-self: stretch;
+  grid-area: field-progress-bar;
 }
 
 
@@ -112,7 +85,7 @@ input {
 .intro h1 {
   color: #323232;
   font-weight: 900;
-  font-size: 300px;
+  font-size: 18vw;
 }
 
 .button {
@@ -227,16 +200,20 @@ select {
 
 
 
-@media (max-width: 736px) {
+@media (max-width: 740px) {
 
-.field {
-  width: 90vw;
-  background-color: #151515;
-  border: none;
-  border-bottom: 1px solid grey;
-  color: #FFFFFF;
-  font-weight: bold;
-  font-size: 60px;
-}
+  .main-container {
+    grid-template-columns: repeat(4, 25%);
+    grid-template-rows: auto;
+    grid-template-areas:
+      ". . . ."
+      ". text text ."
+      ". . . ."
+      ". field-progress-bar field-progress-bar ."
+    }
+
+ /*   .field {
+      font-size: 30px;
+    }*/
 
 }

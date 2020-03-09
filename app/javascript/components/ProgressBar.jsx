@@ -5,13 +5,11 @@ class ProgressBar extends Component {
 
   render(){
     const Tracker = styled.div`
-      width: 570px;
       height: 20px;
       margin: 15px auto;
       background: transparent;
       border: 1px solid black;
       position: relative;
-      margin-right: 300px;
     `;
 
     let percentageWidth = this.props.percentage + "%"
