@@ -28,6 +28,21 @@ input {
 
 .text {
   grid-area: text;
+  animation: move-text 2s;
+}
+
+@keyframes move-text {
+
+  0% {
+    transform: translate(0,0);
+    opacity: 0;
+  }
+
+  50% {
+    transform: translate(-50px);
+    opacity: 1;
+  }
+
 }
 
 .text p {
@@ -51,6 +66,7 @@ input {
 .field-progress-bar {
   justify-self: stretch;
   grid-area: field-progress-bar;
+  animation: move-text 2s;
 }
 
 
@@ -203,17 +219,25 @@ select {
 @media (max-width: 812px) {
 
   .main-container {
-    grid-template-columns: repeat(6, 1fr);
+    grid-template-columns: repeat(8, 1fr);
     grid-template-rows: auto;
     grid-template-areas:
-      ". . . . . ."
-      ". text text text text ."
-      ". field-progress-bar field-progress-bar field-progress-bar field-progress-bar ."
-      ". . . . . ."
+      ". . . . . . . ."
+      ". text text text text text text ."
+      ". . . . . . . ."
+      ". field-progress-bar field-progress-bar field-progress-bar field-progress-bar field-progress-bar field-progress-bar ."
+    }
+
+    .text h1 {
+      font-size:14vw;
+    }
+
+    .text p {
+      font-size: 6vw;
     }
 
     .field {
-      font-size: 3.5vw;
+      font-size: 5vw;
     }
 
 }
