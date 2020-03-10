@@ -20,7 +20,8 @@ class App extends Component {
       tags: [],
       results: [],
       percentage: 0,
-      dataFetched: false
+      dataFetched: false,
+      introFinished: false
     }
   }
 
@@ -61,7 +62,13 @@ class App extends Component {
     })
   }
 
-  render(){
+  introFinished = (e) => {
+    this.setState({
+      introFinished: true
+    })
+  }
+
+  render() {
 
     let displayedComponent = null
 
@@ -80,19 +87,27 @@ class App extends Component {
           :
         <ProgressBar percentage={this.state.percentage} />
 
-    return(
-      <div className={mainContainerStyle}>
-        <Intro />
-        <div className="text">
-          <h1>Welcome to MADWORK</h1>
-          <p>Tired of searching 50 different jobs websites?<br/> Search on <strong>MADWORK</strong> and we search all the others for you.</p>
+    if (this.state.introFinished) {
+      return(
+        <div className={mainContainerStyle}>
+            <Intro handleChange={this.introFinished}/>
+          <div className="text">
+            <h1>Welcome to MADWORK</h1>
+            <p>Tired of searching 50 different jobs websites?<br/> Search on <strong>MADWORK</strong> and we search all the others for you.</p>
+          </div>
+          <div className="field-progress-bar">
+            {displayedComponent}
+            {progressBarOrNot}
+          </div>
         </div>
-        <div className="field-progress-bar">
-          {displayedComponent}
-          {progressBarOrNot}
-        </div>
-      </div>
-    )
+        )
+    } else {
+      return (
+          <div className={mainContainerStyle}>
+            <Intro handleChange={this.introFinished}/>
+          </div>
+      )
+    }
   }
 }
 
