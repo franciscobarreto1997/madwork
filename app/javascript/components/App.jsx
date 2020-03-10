@@ -87,23 +87,32 @@ class App extends Component {
           :
         <ProgressBar percentage={this.state.percentage} />
 
-    if (this.state.introFinished) {
-      return(
-        <div className={mainContainerStyle}>
+    if (this.state.introFinished && this.state.tags.length < 3) {
+      return (
+        <div className="main-container">
             <Intro handleChange={this.introFinished}/>
           <div className="text">
             <h1>Welcome to MADWORK</h1>
             <p>Tired of searching 50 different jobs websites?<br/> Search on <strong>MADWORK</strong> and we search all the others for you.</p>
           </div>
           <div className="field-progress-bar">
-            {displayedComponent}
-            {progressBarOrNot}
+            <Search tags={this.state.tags} handleSubmit={this.handleSubmit} handleChange={this.handleChange} input={this.state.query} />
+            <ProgressBar percentage={this.state.percentage} />
           </div>
         </div>
-        )
+      )
+    } else if (this.state.introFinished && this.state.tags.length == 3) {
+      return (
+        <div className="loading-container">
+          <Intro handleChange={this.introFinished}/>
+          <div className="loader">
+            <Loader type="Puff" color="black" height={80} width={80} timeout={120000} />
+          </div>
+        </div>
+      )
     } else {
       return (
-          <div className={mainContainerStyle}>
+          <div className="main-container">
             <Intro handleChange={this.introFinished}/>
           </div>
       )
