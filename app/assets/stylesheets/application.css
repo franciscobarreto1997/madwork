@@ -31,16 +31,34 @@ input {
   animation: move-text 2s;
 }
 
+.text-animated {
+  animation: move-out-text 2s !important;
+}
+
 @keyframes move-text {
 
   0% {
-    transform: translate(100px);
+    transform: translate(-100px);
     opacity: 0;
   }
 
   50% {
     transform: translate(0);
     opacity: 1;
+  }
+
+}
+
+@keyframes move-out-text {
+
+  0% {
+    transform: translate(0);
+    opacity: 1;
+  }
+
+  50% {
+    transform: translate(-100px);
+    opacity: 0;
   }
 
 }
