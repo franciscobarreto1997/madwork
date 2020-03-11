@@ -33,6 +33,15 @@ class App extends Component {
       percentage: this.state.percentage + 33
     }, () => {
       if (this.state.tags.length == 3) {
+
+       const text = document.querySelector('.text')
+       const fieldProgressBar = document.querySelector('.field-progress-bar')
+
+       setTimeout(() => {
+        text.parentNode.removeChild(text);
+        fieldProgressBar.parentNode.removeChild(fieldProgressBar);
+      }, 1000);
+
         axios.post('/search', {
           role: this.state.tags[0],
           experience: this.state.tags[1],
@@ -87,26 +96,17 @@ class App extends Component {
           :
         <ProgressBar percentage={this.state.percentage} />
 
-    if (this.state.introFinished && this.state.tags.length < 3) {
+    if (this.state.introFinished) {
       return (
         <div className="main-container">
             <Intro handleChange={this.introFinished}/>
-          <div className="text">
+          <div className={ this.state.tags.length < 3 ? "text" : "text text-animated" }>
             <h1>Welcome to MADWORK</h1>
             <p>Tired of searching 50 different jobs websites?<br/> Search on <strong>MADWORK</strong> and we search all the others for you.</p>
           </div>
-          <div className="field-progress-bar">
-            <Search tags={this.state.tags} handleSubmit={this.handleSubmit} handleChange={this.handleChange} input={this.state.query} />
+          <div className={ this.state.tags.length < 3 ? "field-progress-bar" : "field-progress-bar text-animated" }>
+            <Search tags={this.state.tags} handleSubmit={this.handleSubmit} handleChange={this.handleChange} input={this.state.query} tags={this.state.tags} />
             <ProgressBar percentage={this.state.percentage} />
-          </div>
-        </div>
-      )
-    } else if (this.state.introFinished && this.state.tags.length == 3) {
-      return (
-        <div className="loading-container">
-          <Intro handleChange={this.introFinished}/>
-          <div className="loader">
-            <Loader type="Puff" color="black" height={80} width={80} timeout={120000} />
           </div>
         </div>
       )
